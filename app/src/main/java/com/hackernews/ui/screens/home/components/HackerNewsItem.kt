@@ -1,5 +1,6 @@
-package com.hackernews.ui.components
+package com.hackernews.ui.screens.home.components
 
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.SwipeToDismissBox
 import androidx.compose.material3.SwipeToDismissBoxValue.EndToStart
 import androidx.compose.material3.SwipeToDismissBoxValue.Settled
@@ -10,7 +11,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import com.hackernews.HackerNews
+import com.hackernews.data.HackerNews
 
 /**
  * Composable representing an hackerNews item with swipe-to-dismiss functionality.
@@ -19,6 +20,7 @@ import com.hackernews.HackerNews
  * @param modifier optional parameters to add extra behaviour to hackerNews.
  * @param onRemove Callback invoked when the hackerNews item is dismissed.
  */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HackerNewsItem(
     hackerNews: HackerNews,

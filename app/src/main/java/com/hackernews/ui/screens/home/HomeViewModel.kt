@@ -1,12 +1,13 @@
-package com.hackernews
+package com.hackernews.ui.screens.home
 
 import androidx.lifecycle.ViewModel
+import com.hackernews.data.HackerNews
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 
-class HackerNewsViewModel : ViewModel() {
+class HomeViewModel : ViewModel() {
     // StateFlow to hold the list of HackerNews
     private val _hackerNewsState = MutableStateFlow(emptyList<HackerNews>())
     val hackerNewsState: StateFlow<List<HackerNews>> = _hackerNewsState.asStateFlow()

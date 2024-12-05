@@ -1,4 +1,4 @@
-package com.hackernews
+package com.hackernews.data
 
 data class HackerNews(
     val message: String,

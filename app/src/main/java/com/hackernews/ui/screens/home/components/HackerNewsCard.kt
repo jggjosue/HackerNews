@@ -1,10 +1,10 @@
-package com.hackernews.ui.components
+package com.hackernews.ui.screens.home.components
 
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import com.hackernews.HackerNews
+import com.hackernews.data.HackerNews
 
 /**
  * Composable that represents a single HackerNews
