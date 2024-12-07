@@ -1,7 +1,7 @@
-package com.hackernews.ui.screens.home
+package com.hackernews.ui.home
 
 import androidx.lifecycle.ViewModel
-import com.hackernews.data.HackerNews
+import com.hackernews.network.model.HackerNews
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -43,28 +43,9 @@ class HomeViewModel : ViewModel() {
      * Generates a list of sample HackerNews
      * @return The list of sample HackerNews
      */
-    private fun getHackerNews() = listOf(
+    fun getHackerNews() = listOf(
         HackerNews(
-            "Vegenoid",
-            "DOJ will push Google to sell off Chrome.",
-            "https://www.bloomberg.com/news/articles/2024-11-18/doj-will-push-google-to-sell-off-chrome-to-break-search-monopoly"
-        ),
-        HackerNews(
-            "theshackleford",
-            "DOJ will push Google to sell off Chrome.",
-            "https://www.bloomberg.com/news/articles/2024-11-18/doj-will-push-google-to-sell-off-chrome-to-break-search-monopoly"
-        ),
-        HackerNews(
-            "theshackleford",
-            "DOJ will push Google to sell off Chrome.",
-            "https://www.bloomberg.com/news/articles/2024-11-18/doj-will-push-google-to-sell-off-chrome-to-break-search-monopoly"
-        ),
-        HackerNews(
-            "IronWolve",
-            "DOJ will push Google to sell off Chrome.",
-            "https://www.bloomberg.com/news/articles/2024-11-18/doj-will-push-google-to-sell-off-chrome-to-break-search-monopoly"
-        ),
-        HackerNews(
+            id = "1",
             "daghamm",
             "DOJ will push Google to sell off Chrome.",
             "https://www.bloomberg.com/news/articles/2024-11-18/doj-will-push-google-to-sell-off-chrome-to-break-search-monopoly"

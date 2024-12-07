@@ -1,4 +1,4 @@
-package com.hackernews.ui.screens.home.components
+package com.hackernews.ui.home.components
 
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.SwipeToDismissBox
@@ -10,8 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
-import com.hackernews.data.HackerNews
+import com.hackernews.network.model.HackerNews
 
 /**
  * Composable representing an hackerNews item with swipe-to-dismiss functionality.
@@ -25,9 +24,9 @@ import com.hackernews.data.HackerNews
 fun HackerNewsItem(
     hackerNews: HackerNews,
     modifier: Modifier = Modifier,
-    onRemove: (HackerNews) -> Unit
+    onRemove: (HackerNews) -> Unit,
+    onClick: () -> Unit
 ) {
-    val context = LocalContext.current
     val currentItem by rememberUpdatedState(hackerNews)
     val dismissState = rememberSwipeToDismissBoxState(
         confirmValueChange = {
@@ -52,7 +51,10 @@ fun HackerNewsItem(
             DismissBackground(dismissState)
         },
         content = {
-            HackerNewsCard(hackerNews)
+//            HackerNewsCard(
+//                hackerNews = hackerNews,
+//                onClick = onClick
+//            )
         }
     )
 }

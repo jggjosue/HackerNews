@@ -1,4 +1,4 @@
-package com.hackernews.ui.screens.home.components
+package com.hackernews.ui.home.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -10,7 +10,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
-import androidx.compose.material3.pulltorefresh.PullToRefreshContainer
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
@@ -20,7 +19,7 @@ import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun <T> PullToRefreshLazyColumn(
+fun <T> PullRefreshLazyColumn(
     items: List<T>,
     content: @Composable (T) -> Unit,
     isRefreshing: Boolean,
@@ -30,8 +29,7 @@ fun <T> PullToRefreshLazyColumn(
 ) {
     val pullToRefreshState = rememberPullToRefreshState()
     Box(
-        modifier = modifier
-            .nestedScroll(pullToRefreshState.nestedScrollConnection)
+//        modifier = modifier.nestedScroll(pullToRefreshState.nestedScrollConnection)
     ) {
         LazyColumn(
             state = lazyListState,
@@ -40,29 +38,29 @@ fun <T> PullToRefreshLazyColumn(
                 .fillMaxSize(),
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            items(items) {
-                content(it)
+            items(items) { item ->
+                content(item)
             }
         }
 
-        if(pullToRefreshState.isRefreshing) {
-            LaunchedEffect(true) {
-                onRefresh()
-            }
-        }
+//        if(pullToRefreshState.isRefreshing) {
+//            LaunchedEffect(true) {
+//                onRefresh()
+//            }
+//        }
 
         LaunchedEffect(isRefreshing) {
             if(isRefreshing) {
-                pullToRefreshState.startRefresh()
+//                pullToRefreshState.startRefresh()
             } else {
-                pullToRefreshState.endRefresh()
+//                pullToRefreshState.endRefresh()
             }
         }
 
-        PullToRefreshContainer(
-            state = pullToRefreshState,
-            modifier = Modifier
-                .align(Alignment.TopCenter),
-        )
+//        PullToRefreshContainer(
+//            state = pullToRefreshState,
+//            modifier = Modifier
+//                .align(Alignment.TopCenter),
+//        )
     }
 }
